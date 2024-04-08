@@ -1,0 +1,27 @@
+.content {
+    width: 800px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+.image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.divInfo {
+    position: absolute;
+    top: 95%;
+    left: 2%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
