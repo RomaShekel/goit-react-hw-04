@@ -7,13 +7,8 @@ export default function ImageGallery({photosData, setDataForModal, setIsOpen}) {
         <ul className={css.galleryDiv}>
             {photosData.map((data) => {
                 return (
-                    <li onClick={() => {
-                        setDataForModal(data);
-                        setIsOpen(true);
-                    }
-
-                        } key={data.id} className={css.li}>
-                <ImageCard data={data}/>
+                    <li key={data.id} className={css.li}>
+                <ImageCard data={data} setDataForModal={setDataForModal} setIsOpen={setIsOpen}/>
                 </li>
                 )
             })}

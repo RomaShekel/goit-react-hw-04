@@ -35,7 +35,7 @@ useEffect(() => {
       setError(false)
       const data = await searchPhotos(topic, page);
       setPhotos((prevPhotos) => {
-      return setPhotos([...prevPhotos, ...data])
+      return ([...prevPhotos, ...data]);
       })
     } catch (error) {
       setError(true)
@@ -65,11 +65,8 @@ useEffect(()=>{
   return (
     <div id="root">
       <SearchBar setTopic={handleSearch} toast={toast}/>
-      { <ImageGallery photosData={photos} setDataForModal={setDataForModal} setIsOpen={setIsOpen}/>}
-      { <LoadMoreBtn handlePage={handlePage} />}
-       {/* При при перевірці на довжину масиву через photos.lenght > 0 виникає помилка, через що падає
-       додаток, здається це виникає через хук useEffect, оскільки до його використання такої проблеми 
-       не було. Підкажіть як це поправити і чи взагалі це потрібно */}
+      {photos.length > 0 && <ImageGallery photosData={photos} setDataForModal={setDataForModal} setIsOpen={setIsOpen}/>}
+      {photos.length > 0 && <LoadMoreBtn handlePage={handlePage} />}
       {error && <ErrorMessage/>}
       {loader && <Loader />}
       {modalIsOpen && <ImageModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} data={dataForModal}/>}
